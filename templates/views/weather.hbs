@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    {{>headlinks}}
+</head>
+
+<body>
+    {{>navbar}}
+
+    <!--main header-->
+    <div class="container-fluid main_header">
+        <div class="row">
+            <div class="col-md-10 col-12 mx-auto">
+                <div class="main_content">
+                    <form class="temp_form">
+                        <input type="text" name="cityName" id="cityName" placeholder="Enter Your City Name"
+                            autocomplete="off">
+                        <input type="submit" name="submitBtn" id="submitBtn" value="Search">
+                    </form>
+                </div>
+
+                <div class="temp_info">
+                    <div class="top_layer">
+                        <p id="day">Monday</p>
+                        <p id="today_data">18 July</p>
+                    </div>
+                    <div class="main_layer">
+                        <p id="city_name">Get Output Here</p>
+                        <div class="middle_layer data_hide">
+                            <p><span id="temp">0</span><sup>o</sup>c</p>
+                            <p id="temp_status"><i class="bi bi-cloud-fill"></i></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    {{>footer}}
+
+    <script src="js/main.js"></script>
+    <script>
+        //returns current day and date
+        function ShowDate() {
+            var now = new Date();
+            var days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+            var months = ["Jan", "Feb", "Mar", "April", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+
+            var Day = document.getElementById("day");
+            var today_data = document.getElementById("today_data");
+
+            Day.innerHTML = `${days[now.getDay()]}`;
+            today_data.innerHTML = ` ${now.getDate()} ${months[now.getMonth()]}, ${now.getFullYear()}`;
+        }
+        ShowDate();
+    </script>
+</body>
+
+</html>
